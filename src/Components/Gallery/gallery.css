@@ -54,7 +54,7 @@
 
 .gallery .img.featured img {
   height: 400px;
-  width: fit-content;
+  width: 100%;
 }
 
 .upload {

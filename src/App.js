@@ -7,7 +7,7 @@ function App() {
       <div className="container">
         <section className="action">
           <div className="action-check">
-            <input type="checkbox" />
+            <input type="checkbox" id="checkbox" />
             <label htmlFor="checkbox">0 Files Selected</label>
           </div>
           <span>Delete files</span>

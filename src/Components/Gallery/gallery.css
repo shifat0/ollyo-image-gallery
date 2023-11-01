@@ -1,0 +1,78 @@
+.gallery {
+  padding: 30px 50px;
+  display: grid;
+  justify-content: space-between;
+  gap: 20px;
+  grid-template-columns: repeat(5, 180px);
+}
+
+.gallery .img {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: fit-content;
+  border: 1px solid gray;
+  border-radius: 10px;
+}
+
+.img > img {
+  height: fit-content;
+  width: 100%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+
+.overlay {
+  position: absolute;
+  background-color: black;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 10px;
+}
+
+.overlay input {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
+
+.img:hover .overlay {
+  opacity: 50%;
+  cursor: pointer;
+  transition: 0.8s ease-in-out;
+}
+
+.gallery .img.featured {
+  grid-column: span 2;
+  grid-row: span 2;
+  height: 100%;
+}
+
+.gallery .img.featured img {
+  height: 400px;
+  width: fit-content;
+}
+
+.upload {
+  border: 1px dashed gray;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  cursor: pointer;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.img-logo {
+  height: 30px;
+  width: 30px;
+  margin-top: 50px;
+}

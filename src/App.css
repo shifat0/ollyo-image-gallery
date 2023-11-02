@@ -1,16 +1,7 @@
 .app {
-  height: 100vh;
-  background-color: rgb(220, 225, 228);
-  position: relative;
-}
-
-.container {
-  position: absolute;
-  top: 2%;
-  left: 1%;
+  margin: 20px auto;
   background-color: white;
-  width: 98%;
-  height: 96%;
+  width: 96%;
   border-radius: 10px;
 }
 

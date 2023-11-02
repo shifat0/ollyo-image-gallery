@@ -21,36 +21,34 @@ function App() {
 
   return (
     <div className="app">
-      <div className="container">
-        <section className="action">
-          {checkedImg.length === 0 ? (
-            <span className="header">Gallery</span>
-          ) : (
-            <>
-              <div className="action-check">
-                <input
-                  type="checkbox"
-                  id="checkbox"
-                  checked={checkedImg.length > 0}
-                />
-                <label htmlFor="checkbox">
-                  {checkedImg.length} Files Selected
-                </label>
-              </div>
-              <span className="delete" onClick={handleDelete}>
-                Delete {checkedImg.length === 1 ? "file" : "files"}
-              </span>
-            </>
-          )}
-        </section>
-        {/* passing props to set the value of state from Gallery component */}
-        <Gallery
-          gallery={gallery}
-          setGallery={setGallery}
-          checkedImg={checkedImg}
-          setCheckedImg={setCheckedImg}
-        />
-      </div>
+      <section className="action">
+        {checkedImg.length === 0 ? (
+          <span className="header">Gallery</span>
+        ) : (
+          <>
+            <div className="action-check">
+              <input
+                type="checkbox"
+                id="checkbox"
+                checked={checkedImg.length > 0}
+              />
+              <label htmlFor="checkbox">
+                {checkedImg.length} Files Selected
+              </label>
+            </div>
+            <span className="delete" onClick={handleDelete}>
+              Delete {checkedImg.length === 1 ? "file" : "files"}
+            </span>
+          </>
+        )}
+      </section>
+      {/* passing props to set the value of state from Gallery component */}
+      <Gallery
+        gallery={gallery}
+        setGallery={setGallery}
+        checkedImg={checkedImg}
+        setCheckedImg={setCheckedImg}
+      />
     </div>
   );
 }

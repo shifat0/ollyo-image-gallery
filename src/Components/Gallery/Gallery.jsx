@@ -57,11 +57,13 @@ function Gallery({ gallery, setGallery, checkedImg, setCheckedImg }) {
         </div>
       ))}
       {/* upload image */}
-      <label htmlFor="file" className="upload">
-        <img className="img-logo" src={imgLogo} alt="add product" />
-        <span>Add Images</span>
-        <input type="file" id="file" />
-      </label>
+      <div className="upload">
+        <label htmlFor="file">
+          <img className="img-logo" src={imgLogo} alt="add product" />
+          <span>Add Images</span>
+          <input type="file" id="file" />
+        </label>
+      </div>
     </section>
   );
 }

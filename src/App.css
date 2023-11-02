@@ -33,6 +33,7 @@
 input[type="checkbox"] {
   width: 20px;
   height: 20px;
+  cursor: pointer;
 }
 
 .action span {

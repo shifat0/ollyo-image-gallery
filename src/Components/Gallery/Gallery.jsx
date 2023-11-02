@@ -5,11 +5,14 @@ import "./gallery.css";
 
 function Gallery() {
   const [gallery, setGallery] = useState(images);
-  // reference of the drag item
+  const [checkedImg, setCheckedImg] = useState([]);
+
+  // index of the drag item
   const dragItem = useRef(null);
-  // reference of the place of drag item
+  // index of the place of drag item
   const placeDragItem = useRef(null);
 
+  // function for moving drag items and sort them
   const handleSort = () => {
     let newGallery = [...gallery];
     // removing from array and storing the dragitem index
@@ -17,6 +20,19 @@ function Gallery() {
     //replacing the place of where the dragitem is going to be placed
     newGallery.splice(placeDragItem.current, 0, moveItem);
     setGallery(newGallery);
+  };
+
+  // function for handling check or uncheck and push into an array for count
+  const handleCheck = (e, i) => {
+    let arr = [...checkedImg];
+    // if chebox is checked and arr doesn't includes the value only then push the index of that image
+    if (e.target.checked === true) {
+      if (!arr.includes(i)) arr.push(i);
+    }
+    // removing item from arr if the checkbox is unchecked
+    if (e.target.checked === false) arr.splice(arr.indexOf(i), 1);
+
+    setCheckedImg(arr);
   };
 
   return (
@@ -34,7 +50,11 @@ function Gallery() {
           <img src={img.src} alt="product" />
           {/* hover overlay */}
           <div className="overlay">
-            <input type="checkbox" name="checkbox" />
+            <input
+              type="checkbox"
+              name="checkbox"
+              onChange={(e) => handleCheck(e, index)}
+            />
           </div>
         </div>
       ))}

@@ -36,8 +36,13 @@ input[type="checkbox"] {
   cursor: pointer;
 }
 
-.action span {
+.action .delete {
   color: red;
   cursor: pointer;
+  font-weight: bold;
+}
+
+.action .header {
+  font-size: 20px;
   font-weight: bold;
 }

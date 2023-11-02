@@ -1,12 +1,8 @@
-import React, { useRef, useState } from "react";
-import { images } from "../../Utils/Images";
+import React, { useRef } from "react";
 import imgLogo from "../../Asset/img-logo.png";
 import "./gallery.css";
 
-function Gallery() {
-  const [gallery, setGallery] = useState(images);
-  const [checkedImg, setCheckedImg] = useState([]);
-
+function Gallery({ gallery, setGallery, checkedImg, setCheckedImg }) {
   // index of the drag item
   const dragItem = useRef(null);
   // index of the place of drag item
@@ -23,14 +19,14 @@ function Gallery() {
   };
 
   // function for handling check or uncheck and push into an array for count
-  const handleCheck = (e, i) => {
+  const handleCheck = (e, img) => {
     let arr = [...checkedImg];
-    // if chebox is checked and arr doesn't includes the value only then push the index of that image
+    // if checkbox is checked and arr doesn't includes the value only then push the image
     if (e.target.checked === true) {
-      if (!arr.includes(i)) arr.push(i);
+      if (!arr.includes(img)) arr.push(img);
     }
     // removing item from arr if the checkbox is unchecked
-    if (e.target.checked === false) arr.splice(arr.indexOf(i), 1);
+    if (e.target.checked === false) arr.splice(arr.indexOf(img), 1);
 
     setCheckedImg(arr);
   };
@@ -53,7 +49,9 @@ function Gallery() {
             <input
               type="checkbox"
               name="checkbox"
-              onChange={(e) => handleCheck(e, index)}
+              onChange={(e) => handleCheck(e, img)}
+              // checked only if img exists in checkedImg array then
+              checked={checkedImg.includes(img)}
             />
           </div>
         </div>

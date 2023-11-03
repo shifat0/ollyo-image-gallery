@@ -14,7 +14,7 @@ function App() {
       // matching index of each cheked item and deleting from gallery
       newGallery.splice(newGallery.indexOf(item), 1);
       // after deleting, setting checkedImg state to an empty array
-      setCheckedImg([]);
+      return setCheckedImg([]);
     });
     setGallery(newGallery);
   };

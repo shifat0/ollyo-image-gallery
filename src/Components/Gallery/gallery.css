@@ -71,7 +71,7 @@
 }
 
 .gallery .img.featured img {
-  height: 400px;
+  height: 100%;
   width: 100%;
 }
 

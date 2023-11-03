@@ -45,7 +45,11 @@ function Gallery({ gallery, setGallery, checkedImg, setCheckedImg }) {
         >
           <img src={img.src} alt="product" />
           {/* hover overlay */}
-          <div className="overlay">
+          <div
+            className={`${
+              checkedImg.includes(img) ? "overlay checked" : "overlay"
+            }`}
+          >
             <input
               type="checkbox"
               name="checkbox"

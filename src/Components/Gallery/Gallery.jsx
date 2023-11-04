@@ -31,15 +31,28 @@ function Gallery({ gallery, setGallery, checkedImg, setCheckedImg }) {
     setCheckedImg(arr);
   };
 
+  // function for uploading file
+  const handleFileUpload = (e) => {
+    let file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        let uploadedImage = { src: reader.result };
+        setGallery((prev) => [...prev, uploadedImage]);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   return (
-    <section className="gallery">
+    <section className="gallery" onDragOver={(e) => e.preventDefault()}>
       {gallery.map((img, index) => (
         <div
           // toogling class for featured image
           className={`${index === 0 ? "img featured" : "img"}`}
           key={index}
           draggable
-          onDragStart={() => (dragItem.current = index)}
+          onDragStart={(e) => (dragItem.current = index)}
           onDragEnter={() => (placeDragItem.current = index)}
           onDragEnd={handleSort}
         >
@@ -65,7 +78,12 @@ function Gallery({ gallery, setGallery, checkedImg, setCheckedImg }) {
         <label htmlFor="file">
           <img className="img-logo" src={imgLogo} alt="add product" />
           <span>Add Images</span>
-          <input type="file" id="file" />
+          <input
+            type="file"
+            id="file"
+            accept="image/*"
+            onChange={(e) => handleFileUpload(e)}
+          />
         </label>
       </div>
     </section>
